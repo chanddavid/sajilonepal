@@ -1,0 +1,30 @@
+{% extends 'core/base.html' %}
+{% block title %}| Register{% endblock title %}
+{% block register %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 offset-3">
+                <form action=""
+                      method="post"
+                      class="shadow p-5 bg-white rounded mt-3"
+                      id="formdata"
+                      novalidate>
+                    {% csrf_token %}
+                    <div class="text-center">
+                        {% if messages %}
+                            {% for message in messages %}<small class={{ message.tags }}> {{ message }}</small>{% endfor %}
+                        {% endif %}
+                        <br>
+                    </div>
+                    {% for fm in form %}
+                        {{ fm.label_tag }} {{ fm }} <small class="text-danger">{{ fm.errors|striptags }}</small>
+                        <br>
+                    {% endfor %}
+                    <div class="text-center">
+                        <input type="submit" class='btn btn-primary' value="Register">
+                        <a href="{% url 'login' %}" class="btn btn-success">Login</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    {% endblock register %}

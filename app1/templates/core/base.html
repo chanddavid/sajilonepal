@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>SAJILO {% block title %}{% endblock title %}</title>
+        <link rel="stylesheet" href="{% static 'core/css/fontawesome.css' %}" />
+        <link rel="stylesheet" href="{% static 'core/css/bootstrap.css' %}" />
+        <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap"
+              rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'core/css/core.css' %}" />
+    </head>
+    <body>
+
+        {% include 'core/navbar.html' %}
+        
+        {% block home %}
+        {% endblock home %}
+        {% block livesale %}
+        {% endblock livesale %}
+        {% block product %}
+        {% endblock product %}
+        {% block register %}
+        {% endblock register %}
+        {% block login %}
+        {% endblock login %}
+        {% block poductdetails %}{% endblock poductdetails %}
+        {% block cart %}{% endblock cart %}
+        {% block checkout %}{% endblock checkout %}
+        {% block profile %}{% endblock profile %}
+        {% block address %}{% endblock address %}
+        {% block orders %}{% endblock orders %}
+        {% block changepassword %}{% endblock changepassword %}
+        {% block mobile %}{% endblock mobile %}
+        {% block buynow %}{% endblock buynow %}
+        {% block Passwordreset %}{% endblock Passwordreset %}
+        {% block Passwordresetdone %}{% endblock Passwordresetdone %}
+        {% block resetpasswordconfirm %}{% endblock resetpasswordconfirm %}
+        <!-- Start Footer -->
+        <footer class="container-fluid bg-dark text-center p-2 mt-5">
+            <small class="text-white">Copyright &copy; 2022 || Designed By TankmanSodari ||</small>
+           
+        </footer>
+        <!-- End Footer -->
+        <script src="{% static 'core/js/jquery.js' %}" crossorigin="anonymous"></script>
+        <script src="{% static 'core/js/popper.js' %}" crossorigin="anonymous"></script>
+        <script src="{% static 'core/js/fontawesome.js' %}" crossorigin="anonymous"></script>
+        <script src="{% static 'core/js/bootstrap.js' %}" crossorigin="anonymous"></script>
+        <script src="{% static 'core/js/myscript.js' %}" crossorigin="anonymous"></script>
+    </body>
+</html>
+</body>
+</html>

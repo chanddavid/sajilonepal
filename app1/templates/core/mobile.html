@@ -1,0 +1,71 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}
+    | Mobile
+{% endblock title %}
+{% block mobile %}
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-sm-3">
+                <h5>Side Bar for Mobile filter</h5>
+                <br>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle"
+                            type="button"
+                            id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                        Filter By Brands
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        {% for i in brands %}
+                            <li>
+                                <a class="dropdown-item" href="{% url 'mobiledata' i.brand %}">{{ i.brand }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <a type="button" href="{% url 'mobile' %}" class="btn btn-secondary">All</a>
+                    <br>
+                    <br>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle"
+                            type="button"
+                            id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                        Filter By Price
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                       
+                            <li>
+                                <a class="dropdown-item" href="{% url 'mobiledata' 'below' %}">Less than 500</a>
+                                <a class="dropdown-item" href="{% url 'mobiledata' 'between' %}">1000-5000</a>
+                                <a class="dropdown-item" href="{% url 'mobiledata' 'above' %}">More than 5000</a>
+                            </li>
+                      
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-8 offset-sm-1">
+                <div class="row">
+                    {% for i in mobile %}
+                        <div class="card m-1" style="width: 15rem;">
+                            <img src="{{ i.product_image.url }}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold">{{ i.title }}</h5>
+                                <p class="card-text fw-bold">
+                                    {{ i.discount_price }}
+                                </p>
+                                <small class="fw-light text-decoration-line-through">Rs:{{ i.seling_price }}</small>
+                                <div>
+                                    <a href="{% url 'product-details' i.id %}" class="btn btn-primary">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock mobile %}

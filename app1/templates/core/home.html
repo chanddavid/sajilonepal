@@ -1,0 +1,292 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+{% comment %} slider {% endcomment %}
+{% block home %}
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'core/image/slider/b1.jpg' %}" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'core/image/slider/b2.jpg' %}" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'core/image/slider/b3.jpg' %}" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+{% endblock home %}
+{% block livesale %}
+    <!-- Live Sale Section -->
+    <div class="container">
+        <div class="row bg-danger text-center p-5 text-white border-bottom shadow">
+            <h1>Your Satisfaction, Our Responsibility</h1>
+            <span>5% Instant Discount on Global Bank Credit and Debit Card</span>
+            <small class="fw-lighter">Term and Condition Applied (For details visit Bank's official Website)</small>
+        </div>
+    </div>
+    <!-- End Live Sale Section -->
+{% endblock livesale %}
+{% comment %} end slider {% endcomment %}
+{% block product %}
+    <div class="container banner1 mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>
+                    Mobile <b>Products</b>
+                </h2>
+                <div id="myCarousel"
+                     class="carousel slide"
+                     data-ride="carousel"
+                     data-interval="0">
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner" >
+                        <div class="carousel-item active">
+                            <div class="row">
+                                {% for i in mobile %}
+                                <div class="col-sm-3" >
+                                    <div class="thumb-wrapper">
+                                        <div class="img-box">
+                                            <img src="{{i.product_image.url}}"
+                                                 class="img-fluid"
+                                                 alt="">
+                                        </div>
+                                        <div class="thumb-content">
+                                            <h4>{{i.title}}</h4>
+                                            <p class="item-price">
+                                                <strike>{{i.discount_price}}</strike> <span>{{i.seling_price}}</span>
+                                            </p>
+                                            <div class="star-rating">
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item">
+                                                        <i class="fa fa-star"></i>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <i class="fa fa-star"></i>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <i class="fa fa-star"></i>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <i class="fa fa-star"></i>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <i class="fa fa-star-half"></i>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <a href="{% url 'product-details' i.id %}" class="btn btn-primary">View Details</a>
+                                        </div>
+                                    </div>
+                                </div> 
+                                {% endfor %}                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container banner1 mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>
+                    Headphone <b>Products</b>
+                </h2>
+                <div id="myCarousel"
+                     class="carousel slide"
+                     data-ride="carousel"
+                     data-interval="0">
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row">
+                                {% for i in headphone %}
+                                <div class="col-sm-3">
+                                    <div class="thumb-wrapper">
+                                        <div class="img-box">
+                                            <img src="{{i.product_image.url}}"
+                                                 class="img-fluid"
+                                                 alt="">
+                                        </div>
+                                        <div class="thumb-content">
+                                            <h4>{{i.title}}</h4>
+                                            <p class="item-price">
+                                                <strike>{{i.discount_price}}</strike> <span>{{i.seling_price}}</span>
+                                            </p>
+                                            <div class="star-rating">
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item">
+                                                        <i class="fa fa-star"></i>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <i class="fa fa-star"></i>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <i class="fa fa-star"></i>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <i class="fa fa-star"></i>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <i class="fa fa-star-half"></i>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <a href="{% url 'product-details' i.id %}" class="btn btn-primary">View Details</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container banner1 mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>
+                    Tshirt <b>Products</b>
+                </h2>
+                <div id="myCarousel"
+                     class="carousel slide"
+                     data-ride="carousel"
+                     data-interval="0">
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row">
+                                {% for i in tshirt %}
+                                <div class="col-sm-3">
+                                    <div class="thumb-wrapper">
+                                        <div class="img-box">
+                                            <img src="{{i.product_image.url}}"
+                                                 class="img-fluid"
+                                                 alt="">
+                                        </div>
+                                        <div class="thumb-content">
+                                            <h4>{{i.title}}</h4>
+                                            <p class="item-price">
+                                                <strike>{{i.discount_price}}</strike> <span>{{i.seling_price}}</span>
+                                            </p>
+                                            <div class="star-rating">
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item">
+                                                        <i class="fa fa-star"></i>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <i class="fa fa-star"></i>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <i class="fa fa-star"></i>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <i class="fa fa-star"></i>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <i class="fa fa-star-half"></i>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <a href="{% url 'product-details' i.id %}" class="btn btn-primary">View Details</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container banner1 mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>
+                    Camera <b>Products</b>
+                </h2>
+                <div id="myCarousel"
+                     class="carousel slide"
+                     data-ride="carousel"
+                     data-interval="0">
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row">
+                                {% for i in camera %}
+                                <div class="col-sm-3">
+                                    <div class="thumb-wrapper">
+                                        <div class="img-box">
+                                            <img src="{{i.product_image.url}}"
+                                                 class="img-fluid"
+                                                 alt="">
+                                        </div>
+                                        <div class="thumb-content">
+                                            <h4>{{i.title}}</h4>
+                                            <p class="item-price">
+                                                <strike>{{i.discount_price}}</strike> <span>{{i.seling_price}}</span>
+                                            </p>
+                                            <div class="star-rating">
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item">
+                                                        <i class="fa fa-star"></i>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <i class="fa fa-star"></i>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <i class="fa fa-star"></i>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <i class="fa fa-star"></i>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <i class="fa fa-star-half"></i>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <a href="{% url 'product-details' i.id %}" class="btn btn-primary">View Details</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End 1st Product Slider -->
+{% endblock product %}

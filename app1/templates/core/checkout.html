@@ -1,0 +1,54 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}
+    |Checkout
+{% endblock title %}
+{% block checkout %}
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-sm-6">
+                <h4>Order Summary</h4>
+                <hr>
+                {% for i in cart_items %}
+                    <div class="card mb-2">
+                        <div class="card-body">
+                            <h5>{{i.product.title}}</h5>
+                            <p>
+                                Quantity: {{i.quantity}}
+                            </p>
+                            <p class="fw-bold">
+                                {% comment %} model ko property {% endcomment %}
+                                {{i.total_cost_per_item}}
+                            </p>
+                        </div>
+                    </div> <hr>
+                    {% endfor %}
+                    <strong>Total Amount + 70(shipping):{{total_amount}}</strong><hr>
+                <small><strong>Term and Condition:</strong> Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, ullam saepe! Iure optio repellat dolor velit, minus rem. Facilis cumque neque numquam laboriosam, accusantium adipisci nisi nihil in et quis?</small>
+            </div>
+            <div class="col-sm-4 offset-sm-1">
+                <h4>Select Shipping Address</h4>
+                <hr>
+                <form action="/paymentdone">
+                    {% for i in address %}
+                        <div class="card">
+                            <div class="card-body">
+                                <h5>{{ i.name }}</h5>
+                                <p>
+                                    {{ i.city }},{{ i.provience }}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-check mt-2 mb-5">
+                            <input class="form-check-input" type="radio" name="custid" id="custid{{forloop.counter}}" value="{{i.id}}">
+                            <label class="form-check-label fw-bold" for="custid{{forloop.counter}}">Address: {{ forloop.counter }}</label>
+                        </div>
+                    {% endfor %}
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-warning mt-3 px-5 fw-bold">Continue</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock checkout %}

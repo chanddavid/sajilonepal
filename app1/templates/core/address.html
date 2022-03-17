@@ -1,0 +1,48 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}
+    | Address
+{% endblock title %}
+{% block address %}
+    <div class="container my-5">
+        <div class="row">
+            <h3>Welcome Tankaman</h3>
+            <div class="col-sm-2 border-end">
+                <ul class="list-unstyled">
+                    <li class="d-grid">
+                        <a href="{% url 'profile' %}" class="btn">Profile</a>
+                    </li>
+                    <li class="d-grid">
+                        <a href="{% url 'address' %}" class="btn {{ active }}">Address</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-9 offset-sm-1">
+                <div class="row m-2">
+                    {% for i in data %}
+                        <div class="col-sm-6">
+                            <div class="card m-2">
+                                <div class="card-body">
+                                    <h3>Address {{ forloop.counter }}</h3>
+                                    <p>
+                                        Name: {{ i.name }}
+                                    </p>
+                                    <p>
+                                        City: {{ i.city }}
+                                    </p>
+                                    <p>
+                                        Provience: {{ i.provience }}
+                                    </p>
+                                    <p>
+                                        Post Code: {{ i.post_code }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+        </div>
+    </div>
+{% endblock address %}

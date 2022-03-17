@@ -1,0 +1,116 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger ">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Logo</a>
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active"
+                       href="#"
+                       id="navbarDropdown"
+                       role="button"
+                       data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        Electronic
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li>
+                            <a class="dropdown-item" href="{% url 'mobile' %}">Mobile</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Camera</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Headphone</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active"
+                       href="#"
+                       id="navbarDropdown"
+                       role="button"
+                       data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        Women's Fashion
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li>
+                            <a class="dropdown-item" href="{% url 'tshirt' %}">TShirt's</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Innerware</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Outer</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="navbar-nav nav justify-content-end">
+                <form class="d-flex">
+                    <input class="form-control me-1"
+                           type="search"
+                           placeholder="Search"
+                           aria-label="Search">
+                    <button class="btn btn-sm btn-primary" type="submit">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                  </form>
+                  
+                {% if request.user.is_authenticated %}
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active"
+                       href="#"
+                       id="navbarDropdown"
+                       role="button"
+                       data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        {{request.user}}
+                    </a>
+                    <ul class="dropdown-menu active" aria-labelledby="navbarDropdown">
+                        <li>
+                            <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'orders' %}">Order</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'changepassword' %}">Change password</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                      <a class="nav-link active"
+                          aria-current="page"
+                          href="{% url 'showcart' %}"><span class="badge bg-warning">{{cartitem}}</span>&nbsp<i class="fa-solid fa-cart-shopping "></i></a>
+                </li>
+                {% else %}
+                  <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link active"
+                          aria-current="page"
+                          href="{% url 'customerregistration' %}">Register</a>
+                  </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
