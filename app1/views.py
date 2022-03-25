@@ -201,7 +201,7 @@ def address(request):
     cartitem=0
     if request.user.is_authenticated:
         cartitem=len(Cart.objects.filter(user=request.user))
-    data = Customer.objects.all()
+    data = Customer.objects.filter(user=request.user)
     return render(request, 'core/address.html', {'active': 'btn-primary', 'data': data,'cartitem':cartitem})
 
 # @method_decorator(login_required,name='dispatch') class based ko lagi
